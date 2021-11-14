@@ -8,6 +8,8 @@ using Microsoft.Extensions.Hosting;
 using ConcessionariaOnline.Models;
 using Microsoft.EntityFrameworkCore;
 using ConcessionariaOnline.Models.ConcessionariaOnlineContext;
+using ConcessionariaOnline.Interfaces;
+using ConcessionariaOnline.Facades;
 
 namespace ConcessionariaOnline
 {
@@ -50,6 +52,10 @@ namespace ConcessionariaOnline
                     Contact = new Contact() { Name = "Matheus Rocha", Email = "matheusrocha@gmail.com", Url = "www.google.com" }
                 });
             });
+
+            // Injeção de dependência
+            services.AddScoped<IUserFunctions, UserFunctions>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
