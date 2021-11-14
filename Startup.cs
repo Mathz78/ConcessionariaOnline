@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ConcessionariaOnline.Models;
 
 namespace ConcessionariaOnline
 {
@@ -27,6 +28,19 @@ namespace ConcessionariaOnline
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/build";
+            });
+
+            // Setting up swagger
+            IServiceCollection serviceCollection = services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info
+                {
+                    Version = "v1",
+                    Title = "Swagger Demo",
+                    Description = "Swagger Demo for ValuesController",
+                    TermsOfService = "None",
+                    Contact = new Contact() { Name = "Matheus Rocha", Email = "matheusrocha@gmail.com", Url = "www.google.com" }
+                });
             });
         }
 
