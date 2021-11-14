@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ConcessionariaOnline.Models;
+using Microsoft.EntityFrameworkCore;
+using ConcessionariaOnline.Models.ConcessionariaOnlineContext;
 
 namespace ConcessionariaOnline
 {
@@ -21,6 +23,12 @@ namespace ConcessionariaOnline
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string ConnectionString = Configuration.GetConnectionString("ConcessionariaString");
+
+            services.AddDbContext<ConcessionariaOnlineContext>(opt => 
+            {
+                opt.UseMySql(ConnectionString, ServerVersion.AutoDetect(ConnectionString));
+            }); 
 
             services.AddControllersWithViews();
 
