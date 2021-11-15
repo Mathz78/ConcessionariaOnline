@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ConcessionariaOnline.Migrations
 {
     [DbContext(typeof(ConcessionariaOnlineContext))]
-    [Migration("20211115021935_CreateaTableOfCars")]
+    [Migration("20211115023604_CreateaTableOfCars")]
     partial class CreateaTableOfCars
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -17,6 +17,33 @@ namespace ConcessionariaOnline.Migrations
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
                 .HasAnnotation("ProductVersion", "5.0.11");
+
+            modelBuilder.Entity("ConcessionariaOnline.Models.Car", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Brand")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Model")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Year")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cars");
+                });
 
             modelBuilder.Entity("ConcessionariaOnline.Models.User", b =>
                 {

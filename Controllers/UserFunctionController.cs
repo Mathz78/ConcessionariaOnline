@@ -23,5 +23,11 @@ namespace ConcessionariaOnline.Controllers
         {
             return Ok(_userFunction.AddUserIntoDb(user));
         }
+
+        [HttpDelete]
+        public IActionResult RemoveUserFromDB([FromQuery] int id) {
+            return Ok(_userFunction.RemoveUserFromDb(id));
+        }
+
     }
 }

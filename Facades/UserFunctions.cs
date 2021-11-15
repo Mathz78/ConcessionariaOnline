@@ -39,6 +39,32 @@ namespace ConcessionariaOnline.Facades
             }
         }
 
+        public UserResponse RemoveUserFromDb(int id)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.Id == id);
+
+
+            if(user == null)
+            {
+                return new UserResponse
+                {
+                    Message = "Usuario Não Cadastrado",
+                    Status = "Falha"
+                };
+
+            }
+            else
+            {
+                _context.Remove(user);
+                _context.SaveChanges();
+                return new UserResponse
+                {
+                    Message = "Usuario Removido Com Sucesso",
+                    Status = "Sucesso"
+                };
+            }  
+        }
+
         private bool VerifyExistingEmail(string email)
         {
             var user = _context.Users.FirstOrDefault(u => u.Email.Contains(email));
