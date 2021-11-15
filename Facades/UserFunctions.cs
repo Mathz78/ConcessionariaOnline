@@ -7,6 +7,9 @@ namespace ConcessionariaOnline.Facades
 {
     public class UserFunctions : IUserFunctions
     {
+        private const string SUCCESS_MESSAGE = "Success.";
+        private const string FAILURE_MESSAGE = "Failure.";
+
         private readonly ConcessionariaOnlineContext _context;
 
         public UserFunctions(ConcessionariaOnlineContext context)
@@ -22,8 +25,8 @@ namespace ConcessionariaOnline.Facades
             {
                 return new UserResponse
                 {
-                    Message = "Este e-mail já está em uso.",
-                    Status = "Falha."
+                    Message = "This email is already in use.",
+                    Status = FAILURE_MESSAGE
                 };
             }
             else 
@@ -33,8 +36,8 @@ namespace ConcessionariaOnline.Facades
 
                 return new UserResponse
                 {
-                    Message = "Usuário cadastrado com sucesso.",
-                    Status = "Sucesso."
+                    Message = "User has been registered successfully.",
+                    Status = SUCCESS_MESSAGE
                 };
             }
         }
@@ -43,15 +46,13 @@ namespace ConcessionariaOnline.Facades
         {
             var user = _context.Users.FirstOrDefault(u => u.Id == id);
 
-
             if(user == null)
             {
                 return new UserResponse
                 {
-                    Message = "Usuario Não Cadastrado",
-                    Status = "Falha"
+                    Message = "The user informed does not exist.",
+                    Status = FAILURE_MESSAGE
                 };
-
             }
             else
             {
@@ -59,8 +60,8 @@ namespace ConcessionariaOnline.Facades
                 _context.SaveChanges();
                 return new UserResponse
                 {
-                    Message = "Usuario Removido Com Sucesso",
-                    Status = "Sucesso"
+                    Message = "User removed successfully.",
+                    Status = SUCCESS_MESSAGE
                 };
             }  
         }

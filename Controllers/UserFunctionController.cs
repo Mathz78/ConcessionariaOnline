@@ -7,6 +7,8 @@ namespace ConcessionariaOnline.Controllers
     [Route("api/user")]
     public class UserFunctionController : ControllerBase
     {
+        private const string SUCCESS_MESSAGE = "Success.";
+
         private readonly IUserFunctions _userFunction;
 
         public UserFunctionController(IUserFunctions userFunctions)
@@ -15,18 +17,36 @@ namespace ConcessionariaOnline.Controllers
         }
 
         /// <summary>
-        /// Adiciona usuário no banco de dados
+        /// Add user into database
         /// </summary>
         /// <returns></returns>
         [HttpPost]
         public IActionResult AddUserIntoDb([FromBody] User user)
         {
-            return Ok(_userFunction.AddUserIntoDb(user));
+            var result = _userFunction.AddUserIntoDb(user);
+            
+            if (result.Status == SUCCESS_MESSAGE)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest(result);
+            }
         }
 
         [HttpDelete]
         public IActionResult RemoveUserFromDB([FromQuery] int id) {
-            return Ok(_userFunction.RemoveUserFromDb(id));
+            var result = _userFunction.RemoveUserFromDb(id);
+            
+            if (result.Status == SUCCESS_MESSAGE)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest(result);
+            }
         }
 
     }
