@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using ConcessionariaOnline.Models;
+using ConcessionariaOnline.Models.Swagger;
 using Microsoft.EntityFrameworkCore;
 using ConcessionariaOnline.Models.ConcessionariaOnlineContext;
 using ConcessionariaOnline.Interfaces;

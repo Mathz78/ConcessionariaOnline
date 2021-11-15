@@ -1,4 +1,4 @@
-namespace ConcessionariaOnline.Models
+namespace ConcessionariaOnline.Models.Swagger
 {
     internal class Contact
     {

@@ -1,6 +1,6 @@
 using Microsoft.OpenApi.Models;
 
-namespace ConcessionariaOnline.Models
+namespace ConcessionariaOnline.Models.Swagger
 {
     internal class Info : OpenApiInfo
     {
