@@ -56,6 +56,7 @@ namespace ConcessionariaOnline
             // Injeção de dependência
             services.AddScoped<IUserFunctions, UserFunctions>();
             services.AddScoped<IOrders, Orders>();
+            services.AddScoped<ICar, Cars>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
