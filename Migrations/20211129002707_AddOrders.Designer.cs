@@ -3,14 +3,16 @@ using System;
 using ConcessionariaOnline.Models.ConcessionariaOnlineContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ConcessionariaOnline.Migrations
 {
     [DbContext(typeof(ConcessionariaOnlineContext))]
-    partial class ConcessionariaOnlineContextModelSnapshot : ModelSnapshot
+    [Migration("20211129002707_AddOrders")]
+    partial class AddOrders
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,18 +37,9 @@ namespace ConcessionariaOnline.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("double");
-
-                    b.Property<bool>("Sold")
-                        .HasColumnType("tinyint(1)");
-
                     b.Property<string>("Year")
                         .IsRequired()
                         .HasColumnType("longtext");
-
-                    b.Property<int?>("clientId")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -59,7 +52,7 @@ namespace ConcessionariaOnline.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("CheckoutDate")
+                    b.Property<DateTime>("CheckoutDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("OrderDate")

@@ -11,6 +11,8 @@ namespace ConcessionariaOnline.Models
         [Key]
         public int Id { get; set; }
 
+        public int? clientId { get; set; }
+
         [Required]
         public string Name { get; set; }
 
@@ -22,5 +24,11 @@ namespace ConcessionariaOnline.Models
 
         [Required]
         public string Year { get; set; }
+
+        [Required]
+        public bool Sold { get; set; }
+        
+        [Required]
+        public double Price { get; set; }
     }
 }

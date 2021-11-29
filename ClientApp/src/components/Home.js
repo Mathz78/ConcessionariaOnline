@@ -11,7 +11,7 @@ export class Home extends Component {
         <div>
             <h1>Sejam bem-vindos!</h1>
 
-            <div id="carouselExampleControls" class="carousel slide mt-5" data-ride="carousel">
+            <div id="carouselExampleControls" class="carousel slide mt-4" data-ride="carousel">
                 <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img class="d-block w-100 rounded" src={skyline} alt="First slide"></img>

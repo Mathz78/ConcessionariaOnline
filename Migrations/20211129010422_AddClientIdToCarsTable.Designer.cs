@@ -3,14 +3,16 @@ using System;
 using ConcessionariaOnline.Models.ConcessionariaOnlineContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ConcessionariaOnline.Migrations
 {
     [DbContext(typeof(ConcessionariaOnlineContext))]
-    partial class ConcessionariaOnlineContextModelSnapshot : ModelSnapshot
+    [Migration("20211129010422_AddClientIdToCarsTable")]
+    partial class AddClientIdToCarsTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
