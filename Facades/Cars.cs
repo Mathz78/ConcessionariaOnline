@@ -34,9 +34,7 @@ namespace ConcessionariaOnline.Facades
 
         public IList<Car> GetAllCars()
         {
-            var cars = _context.Cars.ToList();
-
-            return cars;
+            return _context.Cars.ToList();
         }
     }
 }

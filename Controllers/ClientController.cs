@@ -34,5 +34,16 @@ namespace ConcessionariaOnline.Controllers
                 return BadRequest(result);
             }
         }
+
+        /// <summary>
+        /// Return a list of all clients
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult GetAllClients()
+        {
+            var result = _client.GetAllClients();
+            return Ok(result);
+        }
     }
 }

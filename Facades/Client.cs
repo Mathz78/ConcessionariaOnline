@@ -2,6 +2,7 @@ using ConcessionariaOnline.Models.ConcessionariaOnlineContext;
 using ConcessionariaOnline.Interfaces;
 using ConcessionariaOnline.Models;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace ConcessionariaOnline.Facades
 {
@@ -37,6 +38,11 @@ namespace ConcessionariaOnline.Facades
                     Status = "Failure."
                 };
             }
+        }
+
+        public IList<Models.Client> GetAllClients()
+        {
+            return _context.Clients.ToList();
         }
     }
 }
