@@ -1,6 +1,8 @@
 using ConcessionariaOnline.Models.ConcessionariaOnlineContext;
 using ConcessionariaOnline.Models;
 using ConcessionariaOnline.Interfaces;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ConcessionariaOnline.Facades
 {
@@ -28,6 +30,13 @@ namespace ConcessionariaOnline.Facades
             {
                 return false;
             }
+        }
+
+        public IList<Car> GetAllCars()
+        {
+            var cars = _context.Cars.ToList();
+
+            return cars;
         }
     }
 }

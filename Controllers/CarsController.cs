@@ -32,5 +32,15 @@ namespace ConcessionariaOnline.Controllers
                 return BadRequest(result);
             }
         }
+
+        /// <summary>
+        /// Return a list of all cars
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult GetAllCars()
+        {
+            return Ok(_car.GetAllCars());
+        }
     }
 }
