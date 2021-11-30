@@ -7,8 +7,6 @@ namespace ConcessionariaOnline.Facades
 {
     public class Client : IClient
     {
-        private const int MINIMUM_PRICE = 0;
-
         private readonly ConcessionariaOnlineContext _context;
 
         public Client(ConcessionariaOnlineContext context)

@@ -37,12 +37,15 @@ export class NavMenu extends Component {
                   <NavLink tag={Link} className="text-dark" to="/counter">Sobre nós</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/fetch-data">Entrar</NavLink>
+                  <NavLink tag={Link} className="text-dark" to="/login">Entrar</NavLink>
                 </NavItem>
               </ul>
             </Collapse>
           </Container>
         </Navbar>
+
+        <script src="https://kit.fontawesome.com/ca66204016.js" crossorigin="anonymous"></script>
+
       </header>
     );
   }
