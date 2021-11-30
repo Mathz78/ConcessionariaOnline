@@ -8,13 +8,11 @@ export class Login extends Component {
     render () {
         return (
         <div>
-            <script src="https://kit.fontawesome.com/ca66204016.js" crossorigin="anonymous"></script>
-
-            <div class="wrapper fadeInDown">
+            <div class="wrapper fadeInDown mt-5">
                 <div id="formContent">
 
-                    <div class="fadeIn first">
-                        <i class="fas fa-users"></i>
+                    <div class="fadeIn first mt-2">
+                        <i class="fa fa-users fa-2x"></i>
                     </div>
 
                     <form>
