@@ -6,6 +6,8 @@ namespace ConcessionariaOnline.Facades
 {
     public class Cars : ICar
     {
+        private const int MINIMUM_PRICE = 0;
+
         private readonly ConcessionariaOnlineContext _context;
 
         public Cars(ConcessionariaOnlineContext context)
@@ -15,10 +17,17 @@ namespace ConcessionariaOnline.Facades
 
         public bool AddCar(Car car)
         {
-            _context.Add(car);
+            if (car.Price >= MINIMUM_PRICE) 
+            {
+                _context.Add(car);
 
-            _context.SaveChanges();
-            return true;
+                _context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

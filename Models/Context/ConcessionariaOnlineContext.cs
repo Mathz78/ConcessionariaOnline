@@ -14,5 +14,7 @@ namespace ConcessionariaOnline.Models.ConcessionariaOnlineContext
         public DbSet<Car> Cars { get; set; }
 
         public DbSet<Order> Orders { get; set; }
+
+        public DbSet<Client> Clients { get; set; }
     }
 }
