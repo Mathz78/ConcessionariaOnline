@@ -44,5 +44,30 @@ namespace ConcessionariaOnline.Facades
         {
             return _context.Clients.ToList();
         }
+
+        public UserResponse DeleteUser(int id)
+        {
+            var user = _context.Clients.FirstOrDefault(c => c.ClientId == id);
+
+            if (user != null)
+            {
+                _context.Remove(user);
+                _context.SaveChanges();
+                
+                return new UserResponse
+                {
+                    Message = "The client was deleted.",
+                    Status = "Success."
+                };
+            }
+            else 
+            {
+                return new UserResponse
+                {
+                    Message = "The client was not found.",
+                    Status = "Failure."
+                };
+            }
+        }
     }
 }

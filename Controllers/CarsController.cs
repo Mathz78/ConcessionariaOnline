@@ -23,7 +23,7 @@ namespace ConcessionariaOnline.Controllers
         {
             var result = _car.AddCar(car);
             
-            if (result)
+            if (result.Status == "Success.")
             {
                 return Ok(result);
             }

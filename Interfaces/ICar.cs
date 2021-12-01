@@ -10,7 +10,7 @@ namespace ConcessionariaOnline.Interfaces
         /// </summary>
         /// <param name="car"></param>
         /// <returns></returns>
-        public bool AddCar(Car car);
+        public UserResponse AddCar(Car car);
 
         /// <summary>
         /// Return a list of all cars

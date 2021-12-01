@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using ConcessionariaOnline.Models;
 
 namespace ConcessionariaOnline.Interfaces
@@ -8,5 +9,8 @@ namespace ConcessionariaOnline.Interfaces
 
         public UserResponse RemoveUserFromDb(int id);
 
+        public IList<User> GetAllUsers();
+
+        public UserResponse UpdateUserName(int id, string updatedName);
     }
 }

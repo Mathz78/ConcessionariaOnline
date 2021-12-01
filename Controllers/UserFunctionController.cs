@@ -49,5 +49,25 @@ namespace ConcessionariaOnline.Controllers
             }
         }
 
+        [HttpGet]
+        public IActionResult GetAllUsers() {
+            var result = _userFunction.GetAllUsers();
+            
+            return Ok(result);
+        }
+
+        [HttpPut]
+        public IActionResult UpdateUserName([FromBody] UpdateUserName updatedUserName) {
+            var result = _userFunction.UpdateUserName(updatedUserName.UserId, updatedUserName.updatedName);
+            
+            if (result.Status == SUCCESS_MESSAGE)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest(result);
+            }
+        }
     }
 }

@@ -9,6 +9,8 @@ namespace ConcessionariaOnline.Facades
     public class Cars : ICar
     {
         private const int MINIMUM_PRICE = 0;
+        private const string SUCCESS_MESSAGE = "Success.";
+        private const string FAILURE_MESSAGE = "Failure.";
 
         private readonly ConcessionariaOnlineContext _context;
 
@@ -17,18 +19,27 @@ namespace ConcessionariaOnline.Facades
             _context = context;
         }
 
-        public bool AddCar(Car car)
+        public UserResponse AddCar(Car car)
         {
             if (car.Price >= MINIMUM_PRICE) 
             {
                 _context.Add(car);
 
                 _context.SaveChanges();
-                return true;
+                
+                return new UserResponse
+                {
+                    Message = "The car was added.",
+                    Status = SUCCESS_MESSAGE
+                };
             }
             else
             {
-                return false;
+                return new UserResponse
+                {
+                    Message = "The car was not added.",
+                    Status = FAILURE_MESSAGE
+                };
             }
         }
 

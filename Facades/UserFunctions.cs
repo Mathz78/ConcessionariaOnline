@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using ConcessionariaOnline.Interfaces;
 using ConcessionariaOnline.Models;
@@ -64,6 +65,36 @@ namespace ConcessionariaOnline.Facades
                     Status = SUCCESS_MESSAGE
                 };
             }  
+        }
+
+        public IList<User> GetAllUsers()
+        {
+            return _context.Users.ToList();
+        }
+
+        public UserResponse UpdateUserName(int id, string updatedName)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.Id == id);
+
+            if (user != null)
+            {
+                user.Name = updatedName;
+                _context.SaveChanges();
+
+                return new UserResponse
+                {
+                    Message = "The user was updated.",
+                    Status = SUCCESS_MESSAGE
+                };
+            }
+            else
+            {
+                return new UserResponse
+                {
+                    Message = "The user do not exist.",
+                    Status = FAILURE_MESSAGE
+                };
+            }
         }
 
         private bool VerifyExistingEmail(string email)

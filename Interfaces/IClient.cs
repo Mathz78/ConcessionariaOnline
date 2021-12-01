@@ -8,5 +8,7 @@ namespace ConcessionariaOnline.Interfaces
         public UserResponse CreateClient(Client client);
 
         public IList<Models.Client> GetAllClients();
+
+        public UserResponse DeleteUser(int id);
     }
 }

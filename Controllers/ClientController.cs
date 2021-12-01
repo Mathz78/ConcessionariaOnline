@@ -45,5 +45,16 @@ namespace ConcessionariaOnline.Controllers
             var result = _client.GetAllClients();
             return Ok(result);
         }
+
+        /// <summary>
+        /// Return a list of all clients
+        /// </summary>
+        /// <returns></returns>
+        [HttpDelete]
+        public IActionResult DeleteClient([FromQuery(Name = "id")] int id)
+        {
+            var result = _client.DeleteUser(id);
+            return Ok(result);
+        }
     }
 }
