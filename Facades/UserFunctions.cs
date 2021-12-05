@@ -1,3 +1,5 @@
+using BC = BCrypt.Net.BCrypt;
+
 using System.Collections.Generic;
 using System.Linq;
 using ConcessionariaOnline.Interfaces;
@@ -32,6 +34,8 @@ namespace ConcessionariaOnline.Facades
             }
             else 
             {
+                user.Password = BC.HashPassword(user.Password);
+                
                 _context.Add(user);
                 _context.SaveChanges();
 
