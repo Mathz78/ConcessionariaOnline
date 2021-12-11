@@ -35,7 +35,7 @@ namespace ConcessionariaOnline.Facades
             else 
             {
                 user.Password = BC.HashPassword(user.Password);
-                
+
                 _context.Add(user);
                 _context.SaveChanges();
 
