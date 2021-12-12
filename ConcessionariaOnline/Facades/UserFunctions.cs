@@ -103,10 +103,11 @@ namespace ConcessionariaOnline.Facades
 
         public UserResponse Login(LoginRequest userData)
         {
-            var user = _context.Users.FirstOrDefault(u => u.Name == userData.Username);
+            var user = _context.Users.FirstOrDefault(u => u.Username.ToLower() == userData.Username.ToLower());
+
             if (user != null)
             {
-                if (user.Password == userData.Password)
+                if (BC.Verify(userData.Password, user.Password))
                 {
                     return new UserResponse
                     {
