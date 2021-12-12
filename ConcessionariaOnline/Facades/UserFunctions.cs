@@ -101,6 +101,27 @@ namespace ConcessionariaOnline.Facades
             }
         }
 
+        public UserResponse Login(LoginRequest userData)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.Name == userData.Username);
+            if (user != null)
+            {
+                if (user.Password == userData.Password)
+                {
+                    return new UserResponse
+                    {
+                        Message = "You entered successfully.",
+                        Status = SUCCESS_MESSAGE
+                    };
+                }
+            }
+            return new UserResponse
+            {
+                Message = "You didn't loged in.",
+                Status = FAILURE_MESSAGE
+            };
+        }
+
         private bool VerifyExistingEmail(string email)
         {
             var user = _context.Users.FirstOrDefault(u => u.Email.Contains(email));

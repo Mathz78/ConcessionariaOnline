@@ -69,5 +69,20 @@ namespace ConcessionariaOnline.Controllers
                 return BadRequest(result);
             }
         }
+
+        [HttpPost]
+        [Route("login")]
+        public IActionResult Login([FromBody] LoginRequest userData) {
+            var result = _userFunction.Login(userData);
+            
+            if (result.Status == SUCCESS_MESSAGE)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest(result);
+            }
+        }
     }
 }

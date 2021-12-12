@@ -12,5 +12,7 @@ namespace ConcessionariaOnline.Interfaces
         public IList<User> GetAllUsers();
 
         public UserResponse UpdateUserName(int id, string updatedName);
+
+        public UserResponse Login(LoginRequest userData);
     }
 }
