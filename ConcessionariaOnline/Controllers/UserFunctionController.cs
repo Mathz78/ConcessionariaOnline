@@ -71,7 +71,7 @@ namespace ConcessionariaOnline.Controllers
         }
 
         [HttpPost]
-        [Route("login")]
+        [Route("/loginUser")]
         public IActionResult Login([FromBody] LoginRequest userData) {
             var result = _userFunction.Login(userData);
             

@@ -45,7 +45,7 @@ export class FetchData extends Component {
       <div>
         <div>
           <h1 id="tabelLabel" >Lista contendo os nossos principais funcionários</h1>
-          <p>Este lista contempla os melhores funcionários do mês atual!.</p>
+          <p>Esta lista contempla os melhores funcionários do mês atual!</p>
           {contents}
         </div>
 

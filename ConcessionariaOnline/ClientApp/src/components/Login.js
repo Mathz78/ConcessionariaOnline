@@ -4,7 +4,41 @@ import './Login.css';
 export class Login extends Component {
     static displayName = Login.name;
     
+    constructor(props) {
+        super(props);
+
+        this.updateLogin = this.updateLogin.bind(this);
+        this.updatePassword = this.updatePassword.bind(this);
+
+        this.state = {
+            username : '',
+            password: ''
+        }
+    }
     
+    updateLogin(event){
+        this.setState({username : event.target.value})
+    }
+
+    updatePassword(event){
+        this.setState({password : event.target.value})
+    }
+
+    async checkUserCredentials(username, password) {
+        const response = await fetch('/loginUser', {
+            method: "POST",
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "username": this.state.username,
+                "password": this.state.password
+            })
+        });
+    }
+
+
     render () {
         return (
         <div>
@@ -16,9 +50,9 @@ export class Login extends Component {
                     </div>
 
                     <form>
-                        <input type="text" id="login" class="fadeIn second" name="login" placeholder="login"></input>
-                        <input type="text" id="password" class="fadeIn third" name="login" placeholder="password"></input>
-                        <input type="submit" class="fadeIn fourth" value="Log In"></input>
+                        <input type="text" id="login" class="fadeIn second" name="login" placeholder="login" onChange={this.updateLogin}></input>
+                        <input type="text" id="password" class="fadeIn third" name="login" placeholder="password" onChange={this.updatePassword}></input>
+                        <input type="submit" class="fadeIn fourth" value="Log In" onClick={() => this.checkUserCredentials(this.username, this.password)}></input>
                     </form>
 
                     <div id="formFooter">
